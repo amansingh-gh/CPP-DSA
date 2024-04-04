@@ -5,6 +5,7 @@
         "future": "cpp",
         "istream": "cpp",
         "sstream": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "algorithm": "cpp"
     }
 }
