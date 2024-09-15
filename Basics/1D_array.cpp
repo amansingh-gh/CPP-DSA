@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-pass_v(int a)
+void pass_v(int a)
 {
     a++;
     cout << "The copy passed value is: " << a << endl;
