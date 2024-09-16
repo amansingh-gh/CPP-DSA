@@ -1,30 +1,25 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
-void findDupli(int *arr, int n){
-    int i=0;
-    while(i<n){
-        int index = arr[i]-1;
-        if(arr[i] != arr[index]){
-            swap(arr[i], arr[index]);
-        }
-        else{
-            ++i;
-        }
+void findMissingDuplic(vector<int>&arr){
+  for(int i=0; i<arr.size(); i++){
+  int index = abs(arr[i]);
+  if(arr[index-1]>0){
+    arr[index-1]*=-1;
+  }
+  }
+  for(int i=0; i<arr.size(); i++){
+    if(arr[i]>0){
+      cout << i+1 << " ";
     }
+  }
 
-    for(int i=0; i<n; i++){
-        if(arr[i] != i+1){
-            cout << i+1 << " ";
-        }
-    }
 }
 
 
 int main(){
-    int arr[] = {1,3,3,3,5};
-    int size = 5;
-    findDupli(arr,size);
-
-    return 0;
+  vector<int>arr{1,8,3,5,3,4,1};
+  findMissingDuplic(arr);
+  return 0;
 }
