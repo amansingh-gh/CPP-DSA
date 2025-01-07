@@ -4,11 +4,11 @@ using namespace std;
 
 int binarySearch(vector<int>&arr, int s, int e, int key){
   //base case
-  if(s>e) return -1;
+  if(s>e) return -1; 
   
 
   int mid  = (s+e)/2;
-  if(arr[mid]==key){
+  if(arr[mid]==key){ 
     return mid;
   }
 
