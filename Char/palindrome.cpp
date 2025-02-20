@@ -1,41 +1,30 @@
-#include <iostream>
-#include <string.h>
+#include<iostream>
+#include<string.h>
 using namespace std;
 
-bool palindrome(char ch[])
-{
-    int i = 0;
-    int n = strlen(ch);
-    int j = n - 1;
-    while (i <= j)
-    {
-        if (ch[i] != ch[j])
-        {
+bool chkPlindrome(char ch[]){
+    int i=0;
+    int n=strlen(ch)-1;
+    
+    while(i<=n){
+        if(ch[i]!=ch[n]){
             return false;
+           
         }
-        else
-        {
-            i++;
-            j--;
+        else{
+             i++; n--;
         }
     }
     return true;
 }
 
-int main()
-{
+int main(){
     char ch[100];
-    cin.getline(ch, 100);
-    cout << "You typed : " << ch << endl;
-    palindrome(ch);
-    if (palindrome(ch) == 0)
-    {
-        cout << "This is not palindrome";
-    }
-    if (palindrome(ch) == 1)
-    {
-        cout << "This is the palindrome";
-    }
+    cout << "Enter the string: ";
+    cin >> ch;
+
+    
+    cout << chkPlindrome(ch);
 
     return 0;
 }
