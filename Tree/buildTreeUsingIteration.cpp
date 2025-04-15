@@ -1,12 +1,12 @@
 #include<iostream>
 #include<queue>
 using namespace std;
-
 class node{
-public:
+    public:
     int data;
-    node *left;
-    node *right;
+    node* left;
+    node* right;
+
     node(int data){
         this->data = data;
         this->left = NULL;
@@ -14,22 +14,39 @@ public:
     }
 };
 
-node* buildTree(node* root){
-    
-    cout << "Enter data: " << endl;
+node* buildTreeLevelOrder() {
+    cout << "Enter root data: ";
     int data;
     cin >> data;
-    
-    if(data == -1){
-        return NULL;
+
+    if (data == -1) return NULL;
+
+    node* root = new node(data);
+    queue<node*> q;
+    q.push(root);
+
+    while (!q.empty()) {
+        node* temp = q.front();
+        q.pop();
+
+        // Left child
+        cout << "Enter left child of " << temp->data << ": ";
+        int leftData;
+        cin >> leftData;
+        if (leftData != -1) {
+            temp->left = new node(leftData);
+            q.push(temp->left);
+        }
+
+        // Right child
+        cout << "Enter right child of " << temp->data << ": ";
+        int rightData;
+        cin >> rightData;
+        if (rightData != -1) {
+            temp->right = new node(rightData);
+            q.push(temp->right);
+        }
     }
-    root = new node(data);
-
-    cout << "Enter data for inserting in left of " << data << endl;
-    root->left = buildTree(root->left);
-    cout << "Enter data for inserting in right of " << data << endl;
-    root->right = buildTree(root->right);
-
 
     return root;
 }
@@ -95,11 +112,10 @@ void postorder(node* root){
 int main(){
     node* root = NULL;
 
-    // creating a tree
-    // 1 3 7  -1 11 -1 -1 5 17 -1 -1 -1 -1
-    root = buildTree(root);
+    // Build tree without recursion
+    root = buildTreeLevelOrder();
 
-    cout << "\nPrinting the level order traceful output \n"<< endl;
+    cout << "\nPrinting the level order traversal output:\n";
     levelOrderTraversal(root);
 
     cout << "\nPrinting inorder : "<< endl;
