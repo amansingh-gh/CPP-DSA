@@ -4,7 +4,7 @@ struct stack{
     int size;
     int top;
     int *arr;
-}dd;
+};
 
 void isEmpty(struct stack *ptr){
     if(ptr->top==-1){
@@ -18,6 +18,7 @@ void isFull(struct stack *ptr){
         printf("Stack is Full");
     }
 }
+
 
 int main(){
     struct stack *s;
