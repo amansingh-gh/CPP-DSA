@@ -35,6 +35,7 @@ int expoSearch2(int arr[], int n, int target){
     int i=0;
     int j=1;
     while(arr[j]<target){
+        i=j;
         j = j*2;
     }
     return bs(arr,i,j,target);
