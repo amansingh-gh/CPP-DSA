@@ -1,19 +1,19 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-int charLength(char ch[]){
-    int length = 0;
+int charLength(char name[]){
+    int len=0;
     int i=0;
-
-    while(ch[i] != '\0'){
-        length++;
+    while(name[i]!='\0'){
+        len++;
         i++;
     }
-    return length;
+    return len;
 }
 
 int main(){
     char ch[100];
+    cout << "Enter name :: ";
     cin >> ch;
     cout << "Length is : " << charLength(ch) << endl;
 
